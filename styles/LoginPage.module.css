@@ -1,5 +1,6 @@
 .loginPageContainer {
   height: 100vh;
+  overflow-y: hidden;
   background: linear-gradient(180deg, #05075b 0%, #241aa0 100%);
   background-size: cover;
   display: flex;
@@ -13,7 +14,6 @@
   align-items: center;
   color: white;
   width: 400px;
-  height: 500px;
   border-radius: 15px;
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
@@ -23,6 +23,12 @@
 }
 .loginInputsContainer {
   height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.loginInputsContainer {
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

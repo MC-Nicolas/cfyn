@@ -1,0 +1,12 @@
+import UserActionTypes from './user.types';
+import { firestore } from '../../utils/firebase';
+
+// --------- ACTIONS  ---------- //
+type userInfoProps = {
+  userEmail: string;
+  userId: string;
+};
+export const setUserData = ({ userEmail, userId }: userInfoProps) => ({
+  type: UserActionTypes.ADMIN_lOGIN_SUCCESS,
+  payload: { userEmail, userId },
+});

@@ -11,16 +11,27 @@ export const ButtonEmail = () => {
 type InputProps = {
   icon: string;
   typeOfInput: string;
+  placeholder: string;
 };
-export const InputWithIcon = ({ icon, typeOfInput }: InputProps) => (
+export const InputWithIcon = ({
+  icon,
+  typeOfInput,
+  placeholder,
+}: InputProps) => (
   <div className={styles.inputContainer}>
     <div className={styles.inputLogoContainer}>
       {icon === 'at' && <AlternateEmailIcon color='inherit' />}
       {icon === 'lock' && <LockIcon color='inherit' />}
     </div>
-    {typeOfInput === 'email' && <input type='email' className={styles.input} />}
+    {typeOfInput === 'email' && (
+      <input type='email' className={styles.input} placeholder={placeholder} />
+    )}
     {typeOfInput === 'password' && (
-      <input type='password' className={styles.input} />
+      <input
+        type='password'
+        className={styles.input}
+        placeholder={placeholder}
+      />
     )}
   </div>
 );

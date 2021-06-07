@@ -40,7 +40,7 @@ const Home = () => {
             }}
           >
             This is the only place you need to finally understand and take
-            control of your finances{' '}
+            control of your finances
           </animated.h3>
           <animated.button
             className='buttonCallToActionWhite'

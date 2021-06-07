@@ -1,8 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
 import Link from 'next/link';
 import styles from '../../styles/Navbar.module.css';
 
-const Navbar = () => {
+// Redux
+import { selectUserEmail } from '../../redux/user/user.selectors';
+
+const Navbar = ({ userEmail }) => {
   return (
     <div className={styles.navbarContainer}>
       <nav>
@@ -18,20 +24,29 @@ const Navbar = () => {
             <Link href='/'>About</Link>
           </li>
           <li>
-            <Link href={{ pathname: 'dashboard/Dashboard' }} as='/dashboard'>
-              Contact us
-            </Link>
+            <Link href='/'>Contact us</Link>
           </li>
         </ul>
-        <Link href={{ pathname: '/login/Login' }} as='login'>
-          <button className={`${styles.navbarButton} transparentButton`}>
-            Log in
-          </button>
-        </Link>
+
+        {userEmail ? (
+          <Link href='/dashboard'>
+            <div className={`${styles.navbarButton} transparentButton`}>
+              Dashboard
+            </div>
+          </Link>
+        ) : (
+          <Link href='/login'>
+            <button className={`${styles.navbarButton} transparentButton`}>
+              Log in
+            </button>
+          </Link>
+        )}
       </nav>
-      {/* Nav menu */}
     </div>
   );
 };
+const mapStateToProps = createStructuredSelector({
+  userEmail: selectUserEmail,
+});
 
-export default Navbar;
+export default connect(mapStateToProps)(Navbar);

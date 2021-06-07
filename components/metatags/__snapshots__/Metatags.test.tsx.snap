@@ -8,6 +8,10 @@ Object {
       CFYN
     </title>
     <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    />
+    <meta
       content="summary"
       name="twitter:card"
     />
@@ -42,6 +46,10 @@ Object {
     <title>
       CFYN
     </title>
+    <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    />
     <meta
       content="summary"
       name="twitter:card"

@@ -80,6 +80,14 @@ li {
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+/* Texts */
+.underlined-link {
+  cursor: pointer;
+  color: tomato;
+}
+.underlined-link:hover {
+  text-decoration: underline;
+}
 /*  Heading */
 h4 {
   color: white;
