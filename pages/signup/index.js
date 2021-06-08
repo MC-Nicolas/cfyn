@@ -3,7 +3,7 @@ import styles from '../../styles/LoginPage.module.css';
 import Link from 'next/link';
 
 import { InputWithIcon } from '../../components/input/Input';
-import { ButtonLogin } from '../../components/buttons/Buttons';
+import { Button01 } from '../../components/buttons/Buttons';
 
 const SignupPage = () => {
   return (
@@ -27,8 +27,8 @@ const SignupPage = () => {
             typeOfInput='password'
             placeholder='Password Confirmation'
           />
-          <ButtonLogin title='Sign Up' backgroundCol='#fff' textColor='#000' />
-          <ButtonLogin title='Sign up with Google' backgroundCol='#4285F4' />
+          <Button01 title='Sign Up' backgroundCol='#fff' textColor='#000' />
+          <Button01 title='Sign up with Google' backgroundCol='#4285F4' />
         </div>
         <p>
           Already have an account ?

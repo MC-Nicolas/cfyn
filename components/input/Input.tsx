@@ -18,7 +18,7 @@ export const InputWithIcon = ({
   typeOfInput,
   placeholder,
 }: InputProps) => (
-  <div className={styles.inputContainer}>
+  <div data-testid='inputWithIcon' className={styles.inputContainer}>
     <div className={styles.inputLogoContainer}>
       {icon === 'at' && <AlternateEmailIcon color='inherit' />}
       {icon === 'lock' && <LockIcon color='inherit' />}

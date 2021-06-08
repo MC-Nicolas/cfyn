@@ -3,7 +3,7 @@ import styles from '../../styles/LoginPage.module.css';
 import Link from 'next/link';
 
 import { InputWithIcon } from '../../components/input/Input';
-import { ButtonLogin } from '../../components/buttons/Buttons';
+import { Button01 } from '../../components/buttons/Buttons';
 
 // Firebase
 import { auth, googleAuthProvider } from '../../utils/firebase';
@@ -24,13 +24,13 @@ const LoginPage = () => {
             typeOfInput='password'
             placeholder='Password'
           />
-          <ButtonLogin
+          <Button01
             title='Login'
             backgroundCol='#fff'
             textColor='#000'
             onClick={() => console.log('test')}
           />
-          <ButtonLogin
+          <Button01
             title='Log in with Google'
             backgroundCol='#4285F4'
             onClick={() => signInWithGoogle()}

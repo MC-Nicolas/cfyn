@@ -1,14 +1,30 @@
-import React from 'react';
-import { ButtonLogin } from './Buttons';
+/**
+ * @jest-environment jsdom
+ */
 
-test('<ButtonLogin />', () => {
+import React from 'react';
+import {
+  render,
+  cleanup,
+  fireEvent,
+  getNodeText,
+} from '@testing-library/react';
+import { Button01 } from './Buttons';
+
+test('<Button1 />', () => {
+  const title = 'Log in';
+  const func = jest.fn();
+
   const { debug, getByTestId } = render(
-    <ButtonLogin
-      title='Log in'
-      backgroundCol='#000'
-      textColor='#FFF'
-      onClick={() => console.log('Has been clicked')}
+    <Button01
+      title={title}
+      backgroundCol='#FFF'
+      textColor='#000'
+      onClick={func}
     />
   );
-  debug();
+
+  const buttonOnDOM = getByTestId('button01');
+  fireEvent(buttonOnDOM, new MouseEvent('click'));
+  expect(buttonOnDOM).toMatchSnapshot();
 });

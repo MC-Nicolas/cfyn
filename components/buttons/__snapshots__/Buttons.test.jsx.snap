@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button1 /> 1`] = `
+<button
+  data-testid="button01"
+  style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);"
+>
+  Log in
+</button>
+`;

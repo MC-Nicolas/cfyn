@@ -4,10 +4,14 @@ const INITIAL_STATE = {
   userEmail: '',
   userId: '',
 };
+type ACTIONTYPE = {
+  type: 'USER_lOGIN_SUCCESS';
+  payload: { userEmail: string; userId: string };
+};
 
 const UserReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case UserActionTypes.ADMIN_lOGIN_SUCCESS:
+    case UserActionTypes.USER_lOGIN_SUCCESS:
       return {
         ...state,
         userEmail: action.payload.userEmail,

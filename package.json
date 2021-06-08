@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.13.0",
@@ -38,7 +38,15 @@
     "@types/jest": "^26.0.23",
     "@types/redux-logger": "^3.0.8",
     "babel-jest": "^27.0.2",
+    "global-jsdom": "^8.1.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.0.4"
+    "jest": "^27.0.4",
+    "jsdom": "^16.6.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }

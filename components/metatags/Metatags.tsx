@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 type Props = {
   title: string;
-  description: string;
+  description?: string;
   image?: string;
 };
 

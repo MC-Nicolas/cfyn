@@ -31,17 +31,6 @@ export const storage = firebase.storage();
 /// Helper functions
 
 /**`
- * Gets a users/{uid} document with username
- * @param  {string} username
- */
-export async function getUserWithUsername(username) {
-  const usersRef = firestore.collection('users');
-  const query = usersRef.where('username', '==', username).limit(1);
-  const userDoc = (await query.get()).docs[0];
-  return userDoc;
-}
-
-/**`
  * Converts a firestore document to JSON
  * @param  {DocumentSnapshot} doc
  */

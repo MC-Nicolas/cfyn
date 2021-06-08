@@ -10,8 +10,8 @@ const DataManager = ({ userData, setUser }) => {
   }, [userData]);
   return <></>;
 };
-const mapDispatchToProps = dispatch => ({
-  setUser: ({ userEmail, userId }) =>
+export const mapDispatchToProps = dispatch => ({
+  setUser: ({ userEmail, userId }: { userEmail: string; userId: string }) =>
     dispatch(setUserData({ userEmail, userId })),
 });
 

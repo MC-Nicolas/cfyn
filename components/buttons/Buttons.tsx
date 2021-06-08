@@ -8,7 +8,7 @@ type Props = {
   onClick: () => void;
 };
 
-export const ButtonLogin = ({
+export const Button01 = ({
   title,
   backgroundCol,
   textColor,
@@ -16,6 +16,7 @@ export const ButtonLogin = ({
 }: Props) => {
   return (
     <button
+      data-testid='button01'
       onClick={onClick}
       className={styles.button1}
       style={{ backgroundColor: backgroundCol, color: textColor }}

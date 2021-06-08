@@ -7,8 +7,10 @@ import styles from '../../styles/Navbar.module.css';
 
 // Redux
 import { selectUserEmail } from '../../redux/user/user.selectors';
-
-const Navbar = ({ userEmail }) => {
+type NavbarProps = {
+  userEmail?: string;
+};
+const Navbar = ({ userEmail }: NavbarProps) => {
   return (
     <div className={styles.navbarContainer}>
       <nav>
@@ -30,13 +32,19 @@ const Navbar = ({ userEmail }) => {
 
         {userEmail ? (
           <Link href='/dashboard'>
-            <div className={`${styles.navbarButton} transparentButton`}>
+            <div
+              data-testid='dynamicButton'
+              className={`${styles.navbarButton} transparentButton`}
+            >
               Dashboard
             </div>
           </Link>
         ) : (
           <Link href='/login'>
-            <button className={`${styles.navbarButton} transparentButton`}>
+            <button
+              data-testid='dynamicButton'
+              className={`${styles.navbarButton} transparentButton`}
+            >
               Log in
             </button>
           </Link>
@@ -45,7 +53,7 @@ const Navbar = ({ userEmail }) => {
     </div>
   );
 };
-const mapStateToProps = createStructuredSelector({
+export const mapStateToProps = createStructuredSelector({
   userEmail: selectUserEmail,
 });
 
