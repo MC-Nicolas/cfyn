@@ -2,7 +2,7 @@ import '../styles/globals.css';
 import { Toaster } from 'react-hot-toast';
 import DataManager from '../components/dataManager/DataManager';
 
-import { useUserData } from '../utils/hooks';
+import { useUserData } from '../lib/hooks';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -14,7 +14,7 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <Provider store={store}>
       <DataManager userData={userData} />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
       <Toaster />
     </Provider>
   );

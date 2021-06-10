@@ -4,7 +4,7 @@ import styles from '../../styles/Buttons.module.css';
 type Props = {
   title: string;
   backgroundCol: string;
-  textColor: string;
+  textColor?: string;
   onClick: () => void;
 };
 

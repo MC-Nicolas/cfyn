@@ -16,6 +16,9 @@
   letter-spacing: 5px;
   width: 180px;
 }
+.navbarLogo {
+  width: 80px;
+}
 .navbarMenu {
   position: fixed;
   top: 38px;
@@ -43,6 +46,20 @@
 }
 @media only screen and (max-width: 724px) {
   .navbarMenu {
+    display: none;
+  }
+}
+@media only screen and (max-width: 446px) {
+  .logoContainer {
+    width: 120px;
+    align-items: center;
+    margin-top: -5px;
+  }
+  .navbarLogo {
+    margin-top: 20px;
+    width: 50px;
+  }
+  .navbarBrandTitle {
     display: none;
   }
 }

@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../styles/LoginPage.module.css';
 import Link from 'next/link';
+import Router from 'next/router';
 
 import { InputWithIcon } from '../../components/input/Input';
 import { Button01 } from '../../components/buttons/Buttons';
-
+import Metatags from '../../components/metatags/Metatags';
 // Firebase
-import { auth, googleAuthProvider } from '../../utils/firebase';
+import { auth, googleAuthProvider } from '../../lib/firebase';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectUserEmail } from '../../redux/user/user.selectors';
+
+type SignInProps = {
+  userEmail: string;
+};
 
 const signInWithGoogle = async () => {
   await auth.signInWithPopup(googleAuthProvider);
 };
 
-const LoginPage = () => {
+const LoginPage = ({ userEmail }: SignInProps) => {
+  useEffect(() => {
+    userEmail && Router.push('/dashboard');
+  }, [userEmail]);
+
   return (
     <div className={styles.loginPageContainer}>
+      <Metatags title='CFYN | Login' />
       <div className={styles.loginCard}>
         <h4>Log in</h4>
         <div className={styles.loginInputsContainer}>
@@ -46,5 +59,8 @@ const LoginPage = () => {
     </div>
   );
 };
+const mapStateToProps = createStructuredSelector({
+  userEmail: selectUserEmail,
+});
 
-export default LoginPage;
+export default connect(mapStateToProps)(LoginPage);

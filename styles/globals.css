@@ -88,9 +88,80 @@ li {
 .underlined-link:hover {
   text-decoration: underline;
 }
+/* Colors */
+.colorGreen {
+  color: green;
+}
+.colorRed {
+  color: rgb(185, 24, 24);
+}
 /*  Heading */
 h4 {
   color: white;
   font-size: 28px;
   letter-spacing: 4px;
+}
+.MuiIcon-root {
+  width: 5em;
+  height: 5em;
+  font-size: 100px;
+}
+
+/*  Spacings  */
+.marginTop10 {
+  margin-top: 10px !important;
+}
+.marginBottom10 {
+  margin-bottom: 10px !important;
+}
+.marginTop20 {
+  margin-top: 20px !important;
+}
+.marginBottom20 {
+  margin-bottom: 20px !important;
+}
+
+.divider80 {
+  height: 1px;
+  width: 80%;
+  background-color: rgb(82, 82, 82);
+  margin: 0 auto;
+}
+.divider100 {
+  height: 1px;
+  width: 100%;
+  background-color: rgb(82, 82, 82);
+  margin: 0 auto;
+}
+/* Links */
+.cursorPointer {
+  cursor: pointer;
+}
+/*  Buttons */
+.icon-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+.gradientBackground {
+  background: linear-gradient(180deg, #05075b 0%, #241aa0 100%);
+}
+
+/* Containers */
+.ContainerCentered {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 446px) {
+  .transparentButton {
+    margin-top: 5px;
+    font-size: 12px;
+    padding: 10px 25px;
+  }
 }

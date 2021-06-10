@@ -1,0 +1,42 @@
+.cardInfoBarContainer {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cardInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+  width: 250px;
+  height: 130px;
+  border-radius: 10px;
+  background-color: #161180;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.leftContainerTitle {
+  font-size: 24px;
+}
+.leftContainerAmount {
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-size: 24px;
+}
+
+.rightContainerIconUp {
+  width: 100px !important;
+  height: 100px !important;
+  color: green;
+}
+.rightContainerIconDown {
+  width: 100px !important;
+  height: 100px !important;
+  color: red;
+}

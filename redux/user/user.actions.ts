@@ -1,5 +1,5 @@
 import UserActionTypes from './user.types';
-import { firestore } from '../../utils/firebase';
+import { firestore } from '../../lib/firebase';
 
 // --------- ACTIONS  ---------- //
 type userInfoProps = {

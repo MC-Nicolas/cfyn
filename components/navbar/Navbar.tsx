@@ -7,6 +7,7 @@ import styles from '../../styles/Navbar.module.css';
 
 // Redux
 import { selectUserEmail } from '../../redux/user/user.selectors';
+
 type NavbarProps = {
   userEmail?: string;
 };
@@ -15,8 +16,8 @@ const Navbar = ({ userEmail }: NavbarProps) => {
     <div className={styles.navbarContainer}>
       <nav>
         <div className={styles.logoContainer}>
-          <img src='/logo.png' width={80} />
-          <h2 className='noselect'>CFYN</h2>
+          <img className={styles.navbarLogo} src='/logo.png' />
+          <h2 className={`${styles.navbarBrandTitle} noselect`}>CFYN</h2>
         </div>
         <ul className={styles.navbarMenu}>
           <li>

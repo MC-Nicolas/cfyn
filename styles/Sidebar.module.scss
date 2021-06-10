@@ -1,0 +1,44 @@
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100vh;
+  color: rgb(202, 202, 202);
+  font-weight: 300;
+}
+.sidebarUserInfoContainer {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  margin-top: 40px;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.sidebarUserImageContainer {
+  width: 80px;
+}
+.sidebarUserImage {
+  border-radius: 50%;
+}
+.sidebarMenuContainer {
+  position: relative;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: 2px;
+  justify-content: space-evenly;
+}
+.sidebarMenuText {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: Nunito;
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
