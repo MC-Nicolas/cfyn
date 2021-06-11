@@ -1,6 +1,6 @@
 import DataActionTypes, { ACTIONTYPE } from './data.types';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   areDataVisible: true,
 };
 

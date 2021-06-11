@@ -20,7 +20,8 @@ type Tab =
   | 'debts'
   | 'investments'
   | 'savings'
-  | 'settings';
+  | 'settings'
+  | 'addData';
 
 type DashboardProps = {
   userEmail: string;
@@ -39,6 +40,10 @@ const Dashboard = ({ userEmail }: DashboardProps) => {
     }
   }, []);
 
+  const setActiveTabToAddData = (activeTab: string) => {
+    activeTab === 'addData' ? setActiveTab('balance') : setActiveTab('addData');
+  };
+
   return (
     <div className={styles.dashboardPageContainer}>
       <Metatags title='CFYN | Dashboard' />
@@ -46,7 +51,11 @@ const Dashboard = ({ userEmail }: DashboardProps) => {
       <Sidebar userEmail={userEmail} handleClick={setActiveTab} />
       {/*  Main Content */}
       {/* Dashboard Content*/}
-      <DashboardContent userEmail={userEmail} activeTab={activeTab} />
+      <DashboardContent
+        userEmail={userEmail}
+        activeTab={activeTab}
+        handleClick={setActiveTabToAddData}
+      />
     </div>
   );
 };

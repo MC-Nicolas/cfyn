@@ -12,7 +12,8 @@ type Props = {
     | 'debts'
     | 'investments'
     | 'savings'
-    | 'settings';
+    | 'settings'
+    | 'addData';
 };
 
 const CardInfoBar = ({ userEmail, activeTab }: Props) => {
@@ -29,7 +30,12 @@ const CardInfoBar = ({ userEmail, activeTab }: Props) => {
         <>
           <CardInfo title='total' isTrendUp={true} amount={200} />
           <CardInfo title='Income 1' isTrendUp={false} amount={-120} />
-          <CardInfo title='Income 2' isTrendUp={true} amount={80} />
+          <CardInfo
+            title='Income 2'
+            isTrendUp={false}
+            isTrendFlat={true}
+            amount={0}
+          />
         </>
       )}
       {activeTab === 'expenses' && (

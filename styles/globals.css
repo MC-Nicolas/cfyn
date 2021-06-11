@@ -95,6 +95,9 @@ li {
 .colorRed {
   color: rgb(185, 24, 24);
 }
+.colorOrange {
+  color: rgb(196, 129, 5);
+}
 /*  Heading */
 h4 {
   color: white;

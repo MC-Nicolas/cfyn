@@ -24,7 +24,8 @@ test('<DataManager /> Sending userData', async () => {
 
   await mapDispatchToProps(dispatch).setUser(userData);
   const dispatchFunc = await dispatch.mock.calls[0][0];
-  expect(dispatchFunc.type).toBe('USER_lOGIN_SUCCESS');
+
+  expect(dispatchFunc.type).toBe('USER_LOGIN_SUCCESS');
 
   expect(dispatchFunc.payload).toStrictEqual({
     userEmail: 'test@gmail.com',

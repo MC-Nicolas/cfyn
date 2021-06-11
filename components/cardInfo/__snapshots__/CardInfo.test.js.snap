@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardInfo /> Equal amount 1`] = `
+<p
+  class="undefined colorOrange"
+  data-testid="cardInfoAmountIndicator"
+>
+  0
+  €
+</p>
+`;
+
+exports[`<CardInfo /> Negative Amount 1`] = `
+<p
+  class="undefined colorRed"
+  data-testid="cardInfoAmountIndicator"
+>
+  -100
+  €
+</p>
+`;
+
+exports[`<CardInfo /> Positive amount 1`] = `
+<p
+  class="undefined colorGreen"
+  data-testid="cardInfoAmountIndicator"
+>
+  +20
+  €
+</p>
+`;

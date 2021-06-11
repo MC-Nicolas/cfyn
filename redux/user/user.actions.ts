@@ -7,6 +7,6 @@ type userInfoProps = {
   userId: string;
 };
 export const setUserData = ({ userEmail, userId }: userInfoProps) => ({
-  type: UserActionTypes.USER_lOGIN_SUCCESS,
+  type: UserActionTypes.USER_LOGIN_SUCCESS,
   payload: { userEmail, userId },
 });

@@ -11,6 +11,7 @@ import { setAreDataVisible } from '../../redux/data/data.actions';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 interface Props {
   activeTab:
@@ -21,29 +22,54 @@ interface Props {
     | 'debts'
     | 'investments'
     | 'savings'
-    | 'settings';
+    | 'settings'
+    | 'addData';
   areDataVisible: boolean;
   setDataAreVisible: (arg: boolean) => void;
+  handleClick: (activeTab: string) => void;
 }
 
 const DashboardActionBar = ({
   activeTab,
   areDataVisible,
   setDataAreVisible,
+  handleClick,
 }: Props) => {
   return (
     <div className={styles.dashboardActionsBar}>
-      <h3>{activeTab.replace(/^\w/, (c) => c.toUpperCase())}</h3>
+      <h3 data-testid='dashboardActionBarTitle'>
+        {activeTab === 'addData'
+          ? 'Add a record'
+          : activeTab.replace(/^\w/, (c) => c.toUpperCase())}
+      </h3>
       <div className={styles.dashboardActionContainer}>
-        <button className='icon-button'>
-          <AddBoxIcon />
-        </button>
-        <button
-          className='icon-button'
-          onClick={() => setDataAreVisible(!areDataVisible)}
-        >
-          {!areDataVisible ? <VisibilityIcon /> : <VisibilityOffIcon />}
-        </button>
+        {activeTab !== 'addData' ? (
+          <>
+            <button
+              className='icon-button'
+              onClick={() => handleClick(activeTab)}
+            >
+              <AddBoxIcon fontSize='large' />
+            </button>
+            <button
+              className='icon-button'
+              onClick={() => setDataAreVisible(!areDataVisible)}
+            >
+              {!areDataVisible ? (
+                <VisibilityIcon fontSize='large' />
+              ) : (
+                <VisibilityOffIcon fontSize='large' />
+              )}
+            </button>
+          </>
+        ) : (
+          <button
+            className='icon-button'
+            onClick={() => handleClick(activeTab)}
+          >
+            <CancelIcon fontSize='large' />
+          </button>
+        )}
       </div>
     </div>
   );

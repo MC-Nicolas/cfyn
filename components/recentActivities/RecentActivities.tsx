@@ -13,7 +13,8 @@ type Props = {
     | 'debts'
     | 'investments'
     | 'savings'
-    | 'settings';
+    | 'settings'
+    | 'addData';
 };
 
 const RecentActivities = ({ activeTab }: Props) => {
