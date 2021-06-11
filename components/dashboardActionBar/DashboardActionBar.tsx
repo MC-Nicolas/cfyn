@@ -33,7 +33,7 @@ const DashboardActionBar = ({
 }: Props) => {
   return (
     <div className={styles.dashboardActionsBar}>
-      <h3>{activeTab.replace(/^\w/, c => c.toUpperCase())}</h3>
+      <h3>{activeTab.replace(/^\w/, (c) => c.toUpperCase())}</h3>
       <div className={styles.dashboardActionContainer}>
         <button className='icon-button'>
           <AddBoxIcon />
@@ -48,6 +48,7 @@ const DashboardActionBar = ({
     </div>
   );
 };
+
 const mapStateToProps = createStructuredSelector({
   areDataVisible: selectAreDataVisible,
 });

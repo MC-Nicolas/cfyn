@@ -1,6 +1,11 @@
 .recentActivityContainer {
   margin-top: 20px;
 }
+.recentActivityTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .recentActivityTitle {
   margin-bottom: 10px;
 }
@@ -10,4 +15,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+.recentActivityTitleButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
 }

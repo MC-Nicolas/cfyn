@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from '../../styles/RecentActivities.module.scss';
 import Image from 'next/image';
 import RecentActivity from '../recentActivity/RecentActivity';
+import TocIcon from '@material-ui/icons/Toc';
 
 type Props = {
   activeTab:
@@ -19,12 +20,16 @@ const RecentActivities = ({ activeTab }: Props) => {
   if (activeTab !== 'settings') {
     return (
       <div className={styles.recentActivityContainer}>
-        <h3 className={styles.recentActivityTitle}>Recent activities</h3>
+        <div className={styles.recentActivityTitleContainer}>
+          <h3 className={styles.recentActivityTitle}>Recent activities</h3>
+          <button className={styles.recentActivityTitleButton}>
+            <TocIcon fontSize='large' />
+          </button>
+        </div>
         <RecentActivity
           typeOfMovement='investment'
           amount={1000}
-          reasonOfMovement='Stock Purchase AAPL
-        '
+          reasonOfMovement='Stock Purchase AAPL'
           date='20/01/2021'
         />
         <div className='divider100 marginTop10 marginBottom10' />

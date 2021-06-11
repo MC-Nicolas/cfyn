@@ -57,13 +57,13 @@ const RecentActivity = ({
           />
         )}
 
-        <p> {typeOfMovement.replace(/^\w/, c => c.toUpperCase())}</p>
+        <p> {typeOfMovement.replace(/^\w/, (c) => c.toUpperCase())}</p>
         <p>{amount > 0 ? `+${amount}` : amount}€</p>
-        <p>{reasonOfMovement.replace(/^\w/, c => c.toUpperCase())}</p>
+        <p>{reasonOfMovement.replace(/^\w/, (c) => c.toUpperCase())}</p>
         <p>{date}</p>
       </div>
     );
-  } else return '';
+  } else return null;
 };
 
 const mapStateToProps = createStructuredSelector({
