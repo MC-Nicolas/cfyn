@@ -13,6 +13,7 @@ type InputProps = {
   typeOfInput: string;
   placeholder: string;
 };
+
 export const InputWithIcon = ({
   icon,
   typeOfInput,
