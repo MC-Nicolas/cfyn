@@ -35,13 +35,13 @@ const CardInfo = ({
             areDataVisible
               ? isTrendFlat
                 ? 'colorOrange'
-                : amount > 0
+                : isTrendUp
                 ? 'colorGreen'
                 : 'colorRed'
               : ''
           }`}
         >
-          {areDataVisible ? (amount > 0 ? `+${amount}` : `${amount}`) : '...'}€
+          {areDataVisible ? (isTrendUp ? `+${amount}` : `-${amount}`) : '...'}€
         </p>
       </div>
       <div className={styles.rightContainer}>

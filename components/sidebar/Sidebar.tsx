@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { connect } from 'react-redux';
-
+import Image from 'next/image';
 import styles from '../../styles/Sidebar.module.scss';
+
+import { setActiveTab } from '../../redux/pages/pages.actions';
 
 type Props = {
   userEmail: string;
-  handleClick: any;
+  setActiveTab: (tab: string) => void;
 };
 
-const Sidebar = ({ userEmail, handleClick }: Props) => {
+const Sidebar = ({ userEmail, setActiveTab }: Props) => {
   return (
     <div className={styles.sidebarContainer}>
       <div className={styles.sidebarUserInfoContainer}>
@@ -28,49 +29,49 @@ const Sidebar = ({ userEmail, handleClick }: Props) => {
 
         <button
           className={`${styles.sidebarMenuText} cursorPointer`}
-          onClick={() => handleClick('balance')}
+          onClick={() => setActiveTab('balance')}
         >
           Balance
         </button>
         <button
           className={`${styles.sidebarMenuText} cursorPointer`}
-          onClick={() => handleClick('goals')}
+          onClick={() => setActiveTab('goals')}
         >
           Goals
         </button>
         <button
           className={`${styles.sidebarMenuText} cursorPointer`}
-          onClick={() => handleClick('incomes')}
+          onClick={() => setActiveTab('incomes')}
         >
           Incomes
         </button>
         <button
           className={`${styles.sidebarMenuText} cursorPointer`}
-          onClick={() => handleClick('expenses')}
+          onClick={() => setActiveTab('expenses')}
         >
           Expenses
         </button>
         <button
           className={`${styles.sidebarMenuText} cursorPointer`}
-          onClick={() => handleClick('debts')}
+          onClick={() => setActiveTab('debts')}
         >
           Debts
         </button>
         <button
           className={`${styles.sidebarMenuText} cursorPointer`}
-          onClick={() => handleClick('savings')}
+          onClick={() => setActiveTab('savings')}
         >
           Savings
         </button>
         <button
           className={`${styles.sidebarMenuText} cursorPointer`}
-          onClick={() => handleClick('investments')}
+          onClick={() => setActiveTab('investments')}
         >
           Investments
         </button>
         <button
           className={`${styles.sidebarMenuText} cursorPointer`}
-          onClick={() => handleClick('settings')}
+          onClick={() => setActiveTab('settings')}
         >
           Settings
         </button>
@@ -78,5 +79,8 @@ const Sidebar = ({ userEmail, handleClick }: Props) => {
     </div>
   );
 };
+const mapDispatchToProps = (dispatch: any) => ({
+  setActiveTab: (activeTab: string) => dispatch(setActiveTab(activeTab)),
+});
 
-export default Sidebar;
+export default connect(null, mapDispatchToProps)(Sidebar);

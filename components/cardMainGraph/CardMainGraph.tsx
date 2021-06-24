@@ -5,14 +5,15 @@ import CardGraph from '../cardGraph/CardGraph';
 
 type Props = {
   title: string;
+  data: any;
 };
 
-const CardMainGraph = ({ title }: Props) => {
+const CardMainGraph = ({ title, data }: Props) => {
   return (
     <div className={styles.cardMainGraphContainer}>
       <h3 className={styles.cardMainGraphTitle}>{title}</h3>
       <div className={styles.cardMainGraph}>
-        <CardGraph />
+        <CardGraph data={data} />
       </div>
     </div>
   );

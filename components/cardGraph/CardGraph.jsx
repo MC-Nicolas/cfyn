@@ -5,62 +5,6 @@ import { createStructuredSelector } from 'reselect';
 
 import { selectAreDataVisible } from '../../redux/data/data.selectors';
 
-const data = [
-  {
-    id: 'japan',
-    color: 'hsl(222, 230%, 50%)',
-    data: [
-      {
-        x: 'plane',
-        y: 300,
-      },
-      {
-        x: 'helicopter',
-        y: 273,
-      },
-      {
-        x: 'boat',
-        y: 60,
-      },
-      {
-        x: 'train',
-        y: 174,
-      },
-      {
-        x: 'subway',
-        y: 256,
-      },
-      {
-        x: 'bus',
-        y: 117,
-      },
-      {
-        x: 'car',
-        y: 100,
-      },
-      {
-        x: 'moto',
-        y: 278,
-      },
-      {
-        x: 'bicycle',
-        y: 78,
-      },
-      {
-        x: 'horse',
-        y: 203,
-      },
-      {
-        x: 'skateboard',
-        y: 163,
-      },
-      {
-        x: 'others',
-        y: 124,
-      },
-    ],
-  },
-];
 const theme = {
   axis: {
     fontSize: '14px',
@@ -82,26 +26,42 @@ const theme = {
   grid: {
     line: {
       stroke: '#888',
+      point: '#de3535',
     },
   },
 };
 
-const CardGraph = ({ areDataVisible }) => {
+const CardGraph = ({ areDataVisible, data }) => {
   if (areDataVisible) {
     return (
       <ResponsiveLine
+        markers={[
+          {
+            axis: 'y',
+            value: 0,
+            lineStyle: { stroke: '#b0413e', strokeWidth: 2 },
+            legend: 'Objectif 1 for 3 month',
+            textStyle: {
+              fill: 'white',
+            },
+          },
+        ]}
         theme={theme}
-        lineWidth={4}
+        lineWidth={3}
         curve='cardinal'
         colors={{ scheme: 'set1' }}
         data={data}
         margin={{ top: 30, right: 30, bottom: 40, left: 60 }}
+        useMesh={true}
+        yScale={{ type: 'linear', min: 'auto', max: 'auto' }}
+        pointColor={{ theme: 'grid.line.point' }}
+        pointSize={10}
         axisLeft={{
           orient: 'left',
           tickSize: 5,
-          tickPadding: 5,
+          tickPadding: 0,
           tickRotation: 0,
-          legend: 'Amount ( $ )',
+          legend: 'Amount ( € )',
           legendOffset: -40,
           legendPosition: 'middle',
         }}

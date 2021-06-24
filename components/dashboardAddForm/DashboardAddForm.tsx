@@ -1,50 +1,61 @@
 import React, { useState, useEffect } from 'react';
-import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import styles from '../../styles/DashboardAddForm.module.scss';
 import { Select } from 'evergreen-ui';
 
+import { selectUserId } from '../../redux/user/user.selectors';
+
 // Components
-import { BalanceAddForm } from '../AddForms/AddForms';
+import {
+  BalanceAddForm,
+  IncomesAddForm,
+  ExpensesAddForm,
+  DebtsAddForm,
+  SavingsAddForm,
+  InvestmentsAddForm,
+} from '../AddForms/AddForms';
+import SelectWithLabel from '../selectWithLabel/selectWithLabel';
 
-interface Props {}
+type Props = {
+  userId: string;
+};
 
-const DashboardAddForm = (props: Props) => {
+const DashboardAddForm = ({ userId }: Props) => {
   const [typeOfForm, setTypeOfForm] = useState<String>('balance');
   return (
     <div className={styles.dashboardAddFormContainer}>
       <div className={styles.dashboardAddFormSelectContainer}>
-        <div className='col-container'>
-          <label>Type of record</label>
-          <div className='width100'>
-            <Select
-              width={260}
-              height={40}
-              defaultValue='balance'
-              onChange={(e) => setTypeOfForm(e.target.value)}
-            >
-              <option value='balance'>Balance</option>
-              <option value='incomes'>Incomes</option>
-              <option value='expenses'>Expenses</option>
-              <option value='debts'>Debts</option>
-              <option value='savings'>Savings</option>
-              <option value='investments'>Investments</option>
-            </Select>
-          </div>
-        </div>
+        <SelectWithLabel
+          title='Type of record'
+          onChange={setTypeOfForm}
+          selectOptions={[
+            'balance',
+            'incomes',
+            'expenses',
+            'debts',
+            'savings',
+            'investments',
+          ]}
+        />
       </div>
       <div className={styles.dashboardAddFormFormContainer}>
-        {typeOfForm === 'balance' && <BalanceAddForm />}
+        {typeOfForm === 'balance' && <BalanceAddForm userId={userId} />}
+        {typeOfForm === 'incomes' && <IncomesAddForm userId={userId} />}
+        {typeOfForm === 'expenses' && <ExpensesAddForm userId={userId} />}
+        {typeOfForm === 'debts' && <DebtsAddForm userId={userId} />}
+        {typeOfForm === 'savings' && <SavingsAddForm userId={userId} />}
+        {typeOfForm === 'investments' && <InvestmentsAddForm userId={userId} />}
       </div>
     </div>
   );
 };
 const mapStateToProps = createStructuredSelector({
-  //
+  userId: selectUserId,
 });
 
 const mapDispatchToProps = {
   //
 };
 
-export default DashboardAddForm;
+export default connect(mapStateToProps)(DashboardAddForm);

@@ -40,22 +40,14 @@ const Dashboard = ({ userEmail }: DashboardProps) => {
     }
   }, []);
 
-  const setActiveTabToAddData = (activeTab: string) => {
-    activeTab === 'addData' ? setActiveTab('balance') : setActiveTab('addData');
-  };
-
   return (
     <div className={styles.dashboardPageContainer}>
       <Metatags title='CFYN | Dashboard' />
       {/* Sidebar decide the content to show */}
-      <Sidebar userEmail={userEmail} handleClick={setActiveTab} />
+      <Sidebar userEmail={userEmail} />
       {/*  Main Content */}
       {/* Dashboard Content*/}
-      <DashboardContent
-        userEmail={userEmail}
-        activeTab={activeTab}
-        handleClick={setActiveTabToAddData}
-      />
+      <DashboardContent userEmail={userEmail} />
     </div>
   );
 };

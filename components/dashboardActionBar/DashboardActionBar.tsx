@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectAreDataVisible } from '../../redux/data/data.selectors';
 import { setAreDataVisible } from '../../redux/data/data.actions';
+import { setActiveTab } from '../../redux/pages/pages.actions';
 
 // Components
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
@@ -26,14 +27,14 @@ interface Props {
     | 'addData';
   areDataVisible: boolean;
   setDataAreVisible: (arg: boolean) => void;
-  handleClick: (activeTab: string) => void;
+  setActiveTab: (arg: string) => void;
 }
 
 const DashboardActionBar = ({
   activeTab,
   areDataVisible,
   setDataAreVisible,
-  handleClick,
+  setActiveTab,
 }: Props) => {
   return (
     <div className={styles.dashboardActionsBar}>
@@ -47,7 +48,7 @@ const DashboardActionBar = ({
           <>
             <button
               className='icon-button'
-              onClick={() => handleClick(activeTab)}
+              onClick={() => setActiveTab('addData')}
             >
               <AddBoxIcon fontSize='large' />
             </button>
@@ -65,7 +66,7 @@ const DashboardActionBar = ({
         ) : (
           <button
             className='icon-button'
-            onClick={() => handleClick(activeTab)}
+            onClick={() => setActiveTab('balance')}
           >
             <CancelIcon fontSize='large' />
           </button>
@@ -82,6 +83,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch: any) => ({
   setDataAreVisible: (areDataVisible: boolean) =>
     dispatch(setAreDataVisible(areDataVisible)),
+  setActiveTab: (activeTab: string) => dispatch(setActiveTab(activeTab)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardActionBar);

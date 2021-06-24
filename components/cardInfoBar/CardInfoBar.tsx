@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { selectDiffWithLastBalance } from '../../redux/databases/databases.selectors';
+import { createStructuredSelector } from 'reselect';
+
 import styles from '../../styles/CardInfoBar.module.scss';
 import CardInfo from '../cardInfo/CardInfo';
 
@@ -14,22 +18,27 @@ type Props = {
     | 'savings'
     | 'settings'
     | 'addData';
+  diffWithLastBalance: { isTrendUp: boolean; amount: number };
 };
 
-const CardInfoBar = ({ userEmail, activeTab }: Props) => {
+const CardInfoBar = ({ userEmail, activeTab, diffWithLastBalance }: Props) => {
   return (
     <div className={styles.cardInfoBarContainer}>
       {activeTab === 'balance' && (
         <>
-          <CardInfo title='balance' isTrendUp={true} amount={200} />
-          <CardInfo title='savings' isTrendUp={false} amount={-120} />
+          <CardInfo
+            title='balance'
+            isTrendUp={diffWithLastBalance.isTrendUp}
+            amount={diffWithLastBalance.amount}
+          />
+          <CardInfo title='savings' isTrendUp={false} amount={120} />
           <CardInfo title='Total Worth' isTrendUp={true} amount={80} />
         </>
       )}
       {activeTab === 'incomes' && (
         <>
           <CardInfo title='total' isTrendUp={true} amount={200} />
-          <CardInfo title='Income 1' isTrendUp={false} amount={-120} />
+          <CardInfo title='Income 1' isTrendUp={false} amount={120} />
           <CardInfo
             title='Income 2'
             isTrendUp={false}
@@ -76,5 +85,7 @@ const CardInfoBar = ({ userEmail, activeTab }: Props) => {
     </div>
   );
 };
-
-export default CardInfoBar;
+const mapStateToProps = createStructuredSelector({
+  diffWithLastBalance: selectDiffWithLastBalance,
+});
+export default connect(mapStateToProps)(CardInfoBar);

@@ -5,7 +5,7 @@ type Props = {
   title: string;
   backgroundCol: string;
   textColor?: string;
-  onClick: () => void;
+  onClick: (e: any) => void;
 };
 
 export const Button01 = ({
